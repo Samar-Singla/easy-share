@@ -15,10 +15,10 @@ const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
-  title: "ConnectShare - P2P File Sharing",
+  title: "EasyShare - P2P File Sharing",
   description: "Direct peer-to-peer file sharing using WebRTC technology",
   keywords: ["file sharing", "p2p", "webrtc", "peer-to-peer", "CDN"],
-  authors: [{ name: "Harsh Jaiswal" }],
+  authors: [{ name: "samar singla" }],
 };
 export const viewport = "width=device-width, initial-scale=1";
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="connectshare-theme">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="EasyShare-theme">
           <WebRTCProvider>
           <div className="relative flex min-h-screen flex-col">
             <Header />

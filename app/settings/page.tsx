@@ -44,7 +44,7 @@ export default function SettingsPage() {
 
   useEffect(() => {
     setMounted(true);
-    const savedSettings = JSON.parse(localStorage.getItem("connectshare-settings") || "{}");
+    const savedSettings = JSON.parse(localStorage.getItem("EasyShare-settings") || "{}");
     if (localPeer) {
       form.setValue('displayName', localPeer.name);
     } else if (savedSettings.displayName) {
@@ -61,7 +61,7 @@ export default function SettingsPage() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setIsSaving(true);
-      localStorage.setItem("connectshare-settings", JSON.stringify(values));
+      localStorage.setItem("EasyShare-settings", JSON.stringify(values));
       await new Promise((resolve) => setTimeout(resolve, 500));
 
       toast({

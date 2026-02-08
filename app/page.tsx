@@ -149,7 +149,7 @@ export default function Home() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-              ConnectShare
+              EasyShare
             </h1>
             <div className="relative">
               <motion.p

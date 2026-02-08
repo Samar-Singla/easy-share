@@ -53,7 +53,7 @@ export default function PeersPage() {
   };
 
   const handleConnectToSignaling = () => {
-    const savedSettings = JSON.parse(localStorage.getItem("connectshare-settings") || "{}");
+    const savedSettings = JSON.parse(localStorage.getItem("EasyShare-settings") || "{}");
     const displayName = savedSettings.displayName;
     if (displayName) {
       connectSignaling(displayName);
