@@ -295,7 +295,7 @@ export const WebRTCProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const connectSignaling = useCallback((name: string) => {
-    const savedSettings = JSON.parse(localStorage.getItem("connectshare-settings") || "{}");
+    const savedSettings = JSON.parse(localStorage.getItem("EasyShare-settings") || "{}");
     const displayName = name || savedSettings.displayName || `User-${generateId().substring(0,4)}`;
     if (displayName) {
       webRTCManager.connectSignaling(displayName);
