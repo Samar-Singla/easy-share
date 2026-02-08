@@ -20,7 +20,7 @@ export default function Footer() {
               aria-label="Email"
             >
               <Mail className="h-4 w-4" />
-              <span className="text-sm">2003harshjais@gmail.com</span>
+              <span className="text-sm">samarsingla13@gmail.com</span>
             </a>
             
             <a 
