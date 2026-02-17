@@ -48,19 +48,21 @@ export class SignalingServer {
 	}
 
 	// Handle fetch requests (including WebSocket upgrades)
-	async fetch(request) {
-		const url = new URL(request.url);
-		
-		// Handle WebSocket upgrade requests
-		if (request.headers.get("Upgrade") === "websocket") {
-			return this.handleWebSocketUpgrade(request);
-		}
-		
-		// Handle regular HTTP requests
-		return new Response("EasyShare Signaling Durable Object", {
-			headers: { "Content-Type": "text/plain" }
-		});
-	}
+async fetch(request) {
+  const url = new URL(request.url);
+
+  // Handle WebSocket upgrade requests
+  if (request.headers.get("Upgrade") === "websocket") {
+    return this.handleWebSocketUpgrade(request);
+  }
+
+  // Handle regular HTTP requests
+  return new Response("EasyShare Signaling Durable Object", {
+    status: 200,
+    headers: { "Content-Type": "text/plain" },
+  });
+}
+
 
 	// Handle WebSocket upgrade
 	async handleWebSocketUpgrade(request) {
@@ -92,10 +94,17 @@ export class SignalingServer {
 			}));
 
 			// Notify other peers about the new peer
-			this.broadcast({
-				type: 'new-peer',
-				peer: { id: newPeer.id, name: newPeer.name }
-			}, peerId);
+this.broadcast(
+  {
+    type: 'new-peer',
+    peer: {
+      id: newPeer.id,
+      name: newPeer.name,
+    },
+  },
+  peerId
+);
+
 
 			// Handle messages from this peer
 			server.addEventListener('message', (event) => {
