@@ -16,16 +16,45 @@ export function formatFileSize(bytes: number): string {
 
 // Get file type icon name based on mime type
 export function getFileTypeIcon(mimeType: string): string {
-  if (mimeType.startsWith("image/")) return "image"
-  if (mimeType.startsWith("video/")) return "video"
-  if (mimeType.startsWith("audio/")) return "audio"
-  if (mimeType.includes("pdf")) return "pdf"
-  if (mimeType.includes("zip") || mimeType.includes("rar") || mimeType.includes("tar")) return "archive"
-  if (mimeType.includes("text") || mimeType.includes("doc")) return "text"
-  if (mimeType.includes("spreadsheet") || mimeType.includes("excel")) return "spreadsheet"
-  if (mimeType.includes("presentation") || mimeType.includes("powerpoint")) return "presentation"
-  return "file"
+  if (mimeType.startsWith("image/")) {
+    return "image";
+  }
+
+  if (mimeType.startsWith("video/")) {
+    return "video";
+  }
+
+  if (mimeType.startsWith("audio/")) {
+    return "audio";
+  }
+
+  if (mimeType.includes("pdf")) {
+    return "pdf";
+  }
+
+  if (
+    mimeType.includes("zip") ||
+    mimeType.includes("rar") ||
+    mimeType.includes("tar")
+  ) {
+    return "archive";
+  }
+
+  if (mimeType.includes("text") || mimeType.includes("doc")) {
+    return "text";
+  }
+
+  if (mimeType.includes("spreadsheet") || mimeType.includes("excel")) {
+    return "spreadsheet";
+  }
+
+  if (mimeType.includes("presentation") || mimeType.includes("powerpoint")) {
+    return "presentation";
+  }
+
+  return "file";
 }
+
 
 // Get file extension from file name
 export function getFileExtension(fileName: string): string {
