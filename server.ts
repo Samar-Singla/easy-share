@@ -115,11 +115,13 @@ app.prepare().then(() => {
         }
     });
 
-    ws.on('close', () => {
-      console.log(`(Node.js WS) Peer disconnected: ${newPeer.name} (ID: ${peerId})`);
-      peers.delete(peerId);
-      broadcast({ type: 'peer-disconnected', peerId }, peerId);
-    });
+ws.on('close', () => {
+  console.log(`(Node.js WS) Peer disconnected: ${newPeer.name} (ID: ${peerId})`);
+
+  peers.delete(peerId);
+  broadcast({ type: 'peer-disconnected', peerId }, peerId);
+});
+
 
     ws.on('error', (error: Error) => { 
       console.error(`(Node.js WS) WebSocket error for peer ${peerId}:`, error);
