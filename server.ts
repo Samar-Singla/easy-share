@@ -2,7 +2,7 @@
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
-const { WebSocketServer } = require('ws'); 
+const { WebSocketServer } = require('ws');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -10,8 +10,11 @@ const handle = app.getRequestHandler();
 
 const port = process.env.PORT || 8000;
 
-
 const peers = new Map();
+
+// Simple startup log for clarity (no logic change)
+console.log(`Starting server in ${dev ? 'development' : 'production'} mode...`);
+
 
 function generateId(): string {
   return Math.random().toString(36).substring(2, 15);
